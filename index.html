@@ -1,42 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Mohith Gowda | Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:Arial,Helvetica,sans-serif}
-body{background:#020617;color:white}
-nav{position:fixed;top:0;width:100%;background:rgba(2,6,23,.9);backdrop-filter:blur(10px);padding:18px 8%;display:flex;justify-content:space-between;align-items:center;z-index:1000}
-.logo{font-size:24px;font-weight:bold;color:#67e8f9}
-nav ul{display:flex;list-style:none;gap:28px}
-nav a{color:white;text-decoration:none}nav a:hover{color:#67e8f9}
-section{padding:110px 8%}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#08112d,#111c44)}
-.small{color:#67e8f9;font-size:20px;font-weight:bold;letter-spacing:2px}
-.hero h1{font-size:72px;margin:15px 0}.gradient{color:#8ab4ff}
-.hero h2{font-size:34px;color:#d1d5db;margin-bottom:25px}
-.hero p{max-width:720px;color:#9ca3af;font-size:20px;line-height:1.7}
-.buttons{margin-top:40px;display:flex;gap:18px}.btn{padding:16px 30px;border-radius:14px;text-decoration:none;font-weight:bold}
-.primary{background:linear-gradient(90deg,#60a5fa,#8b5cf6);color:white}.secondary{border:1px solid #475569;color:white}
-.title{color:#67e8f9;font-size:18px;letter-spacing:3px;margin-bottom:15px}h3{font-size:54px;margin-bottom:25px}
-.about-card{margin-top:35px;background:#111827;border:1px solid #334155;border-radius:24px;padding:35px}.about-card p{color:#cbd5e1;font-size:20px;line-height:1.8}
-.skills{display:flex;flex-wrap:wrap;gap:18px;margin-top:35px}.skill{padding:16px 28px;border-radius:999px;background:#111827;border:1px solid #334155;font-size:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-top:40px}.card{background:#111827;border:1px solid #334155;border-radius:22px;padding:28px;transition:.3s}.card:hover{transform:translateY(-6px);border-color:#60a5fa}
-.tag{color:#67e8f9;font-weight:bold;margin-bottom:18px}.card h4{font-size:30px;margin-bottom:18px}.card p{color:#cbd5e1;line-height:1.8;margin-bottom:22px;font-size:17px}.card a{color:#60a5fa;text-decoration:none;font-weight:bold}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:35px}.contact{background:#111827;border:1px solid #334155;border-radius:20px;padding:25px}.contact h5{color:#9ca3af;margin-bottom:12px;font-size:18px}.contact a{color:white;text-decoration:none;font-size:22px;font-weight:bold;word-break:break-word}
-footer{text-align:center;padding:30px;color:#64748b;border-top:1px solid #1e293b}
-@media(max-width:768px){nav ul{display:none}.hero h1{font-size:48px}h3{font-size:38px}}
+:root{
+ --bg:#050816;
+ --card:rgba(18,24,48,.65);
+ --line:rgba(255,255,255,.08);
+ --text:#eef2ff;
+ --muted:#9aa7c7;
+ --cyan:#6ee7ff;
+ --blue:#5b8cff;
+ --violet:#8b5cf6;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:Inter,Arial,sans-serif}
+body{
+ background:radial-gradient(circle at top,#182553 0%,#050816 55%);
+ color:var(--text);
+ overflow-x:hidden;
+}
+body:before,body:after{
+ content:"";
+ position:fixed;
+ width:420px;height:420px;
+ border-radius:50%;
+ filter:blur(90px);
+ opacity:.22;
+ z-index:-1;
+}
+body:before{background:#4f46e5;top:-120px;left:-120px}
+body:after{background:#06b6d4;right:-120px;bottom:-120px}
+
+nav{
+ position:fixed;top:18px;left:50%;
+ transform:translateX(-50%);
+ width:min(1100px,92%);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:16px 28px;
+ background:rgba(12,16,34,.72);
+ backdrop-filter:blur(18px);
+ border:1px solid var(--line);
+ border-radius:18px;
+ z-index:1000;
+}
+.logo{
+ font-size:22px;
+ font-weight:800;
+ color:var(--cyan);
+ letter-spacing:.5px;
+}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{
+ color:#dbe7ff;
+ text-decoration:none;
+ font-size:15px;
+ transition:.25s;
+}
+nav a:hover{color:var(--cyan)}
+
+section{
+ width:min(1100px,92%);
+ margin:auto;
+ padding:110px 0;
+}
+.hero{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+}
+.hero h5{
+ color:var(--cyan);
+ letter-spacing:3px;
+ margin-bottom:18px;
+}
+.hero h1{
+ font-size:74px;
+ line-height:1.05;
+ margin-bottom:10px;
+}
+.hero h1 span{
+ background:linear-gradient(90deg,var(--cyan),#8aa8ff,var(--violet));
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+}
+.hero h2{
+ color:#d6defa;
+ font-weight:500;
+ margin-bottom:22px;
+}
+.hero p{
+ color:var(--muted);
+ max-width:650px;
+ line-height:1.8;
+ font-size:18px;
+}
+.btns{display:flex;gap:18px;margin-top:38px}
+.btn{
+ padding:15px 28px;
+ border-radius:14px;
+ text-decoration:none;
+ font-weight:700;
+ transition:.25s;
+}
+.primary{
+ background:linear-gradient(135deg,#4fc3ff,#7c6cff);
+ color:white;
+ box-shadow:0 12px 35px rgba(91,140,255,.35);
+}
+.secondary{
+ border:1px solid var(--line);
+ color:white;
+ background:rgba(255,255,255,.03);
+}
+.btn:hover{transform:translateY(-3px)}
+
+.label{
+ color:var(--cyan);
+ letter-spacing:3px;
+ font-size:14px;
+ margin-bottom:14px;
+ font-weight:700;
+}
+.title{
+ font-size:50px;
+ margin-bottom:18px;
+}
+.subtitle{
+ color:var(--muted);
+ font-size:18px;
+ line-height:1.8;
+}
+
+.glass{
+ background:var(--card);
+ backdrop-filter:blur(18px);
+ border:1px solid var(--line);
+ border-radius:26px;
+ padding:34px;
+ margin-top:34px;
+}
+
+.skills{
+ display:flex;
+ flex-wrap:wrap;
+ gap:16px;
+ margin-top:36px;
+}
+.chip{
+ padding:14px 22px;
+ border-radius:999px;
+ background:rgba(255,255,255,.04);
+ border:1px solid var(--line);
+ color:#e8eeff;
+}
+
+.projects{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+ gap:24px;
+ margin-top:36px;
+}
+.card{
+ position:relative;
+ overflow:hidden;
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:24px;
+ padding:28px;
+ transition:.3s;
+}
+.card:before{
+ content:"";
+ position:absolute;
+ width:180px;height:180px;
+ background:radial-gradient(circle,#5b8cff55,transparent 70%);
+ top:-60px;right:-60px;
+}
+.card:hover{
+ transform:translateY(-8px);
+ border-color:#5b8cff;
+}
+.tag{
+ color:var(--cyan);
+ font-size:13px;
+ font-weight:700;
+ letter-spacing:1px;
+ margin-bottom:14px;
+}
+.card h3{
+ font-size:28px;
+ margin-bottom:16px;
+}
+.card p{
+ color:var(--muted);
+ line-height:1.7;
+ margin-bottom:22px;
+}
+.card a{
+ color:#7cb4ff;
+ text-decoration:none;
+ font-weight:700;
+}
+
+.contact{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:22px;
+ margin-top:34px;
+}
+.info{
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:24px;
+}
+.info h4{
+ color:#9fb0d8;
+ margin-bottom:10px;
+}
+.info a{
+ color:white;
+ text-decoration:none;
+ font-weight:700;
+ word-break:break-word;
+}
+footer{
+ text-align:center;
+ color:#7d8cb4;
+ padding:40px 0;
+ border-top:1px solid rgba(255,255,255,.06);
+ margin-top:40px;
+}
+
+@media(max-width:768px){
+ nav ul{display:none}
+ .hero h1{font-size:52px}
+ .title{font-size:38px}
+ .btns{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<nav><div class="logo">Mohith</div><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></nav>
-<section class="hero" id="home"><div class="small">HELLO, I'M</div><h1>Mohith <span class="gradient">Gowda.</span></h1><h2>AIML Engineering Student • Backend Developer</h2><p>I'm a B.Tech Artificial Intelligence & Machine Learning student at REVA University. I enjoy building AI applications, backend systems, network security tools, and immersive 3D experiences using Blender and game development.</p><div class="buttons"><a class="btn primary" href="#projects">Explore My Work →</a><a class="btn secondary" href="#contact">Contact Me</a></div></section>
-<section id="about"><div class="title">ABOUT ME</div><h3>A little about me</h3><p style="color:#94a3b8;font-size:20px;">I'm currently building my foundations in Artificial Intelligence, software engineering, backend development, and cybersecurity.</p><div class="about-card"><p>I am an AIML engineering student who enjoys solving real-world problems through technology. My learning journey includes Python, SQL, C/C++, Machine Learning, and GitHub collaboration. I actively participate in hackathons and continuously improve my technical skills through projects and hands-on experimentation.</p></div></section>
-<section id="skills"><div class="title">SKILLS</div><h3>Technologies I'm Learning</h3><p style="color:#94a3b8;font-size:20px;">A collection of technologies and concepts I've worked with throughout my learning journey.</p><div class="skills"><div class="skill">C</div><div class="skill">C++</div><div class="skill">Python</div><div class="skill">SQL</div><div class="skill">HTML & CSS</div><div class="skill">Git & GitHub</div><div class="skill">Artificial Intelligence</div><div class="skill">Machine Learning</div><div class="skill">Backend Development</div><div class="skill">Network Security</div><div class="skill">Blender</div><div class="skill">Game Development</div></div></section>
-<section id="projects"><div class="title">PROJECTS</div><h3>Things I've Built</h3><p style="color:#94a3b8;font-size:20px;">A selection of projects from coursework, hackathons, and personal learning.</p><div class="grid"><div class="card"><div class="tag">PROJECT 01</div><h4>Movie Recommendation System</h4><p>An AI-powered recommendation system that suggests movies based on user preferences and similarity algorithms.</p><a href="https://github.com/Mohith0621" target="_blank">View on GitHub →</a></div><div class="card"><div class="tag">PROJECT 02</div><h4>AI Network Security Compliance Auditor</h4><p>A vendor-agnostic AI security platform that analyzes router and firewall configurations, detects risks, and provides remediation guidance.</p><a href="https://github.com/Mohith0621" target="_blank">View Repository →</a></div><div class="card"><div class="tag">PROJECT 03 • ONGOING</div><h4>Project Aether</h4><p>A 3D sci-fi exploration game currently being developed in Blender. The project focuses on immersive corridor environments, lighting, level design, and interactive gameplay mechanics.</p><a href="#">Development in Progress →</a></div></div></section>
-<section id="contact"><div class="title">CONTACT</div><h3>Let's Connect</h3><p style="color:#94a3b8;font-size:20px;">Want to connect, collaborate, or talk about technology? Feel free to reach out.</p><div class="contact-grid"><div class="contact"><h5>Email</h5><a href="mailto:Mohith2106@gmail.com">Mohith2106@gmail.com</a></div><div class="contact"><h5>GitHub</h5><a href="https://github.com/Mohith0621" target="_blank">github.com/Mohith0621</a></div><div class="contact"><h5>LinkedIn</h5><a href="https://www.linkedin.com/in/mohith-gowda-v-s-ba0119431/" target="_blank">Connect with me →</a></div><div class="contact"><h5>Portfolio</h5><a href="#home">Back to Top ↑</a></div></div></section>
-<footer>© 2026 Mohith Gowda • AIML Portfolio</footer>
+
+<nav>
+  <div class="logo">Mohith.</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h5>HELLO, I'M</h5>
+    <h1>Mohith <span>Gowda.</span></h1>
+    <h2>AIML Engineering Student • Backend Developer</h2>
+    <p>
+      I build AI-powered applications, backend systems, cybersecurity tools,
+      and immersive 3D game environments using Blender. I'm passionate about
+      turning innovative ideas into real-world software.
+    </p>
+
+    <div class="btns">
+      <a class="btn primary" href="#projects">Explore My Work →</a>
+      <a class="btn secondary" href="#contact">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="label">ABOUT ME</div>
+  <div class="title">A little about me</div>
+  <div class="subtitle">
+    I'm currently strengthening my foundations in Artificial Intelligence,
+    software engineering, backend development, and network security.
+  </div>
+
+  <div class="glass">
+    I enjoy participating in hackathons and building practical AI solutions.
+    My learning journey includes Python, SQL, C/C++, Machine Learning,
+    Git & GitHub, and modern web development. Alongside software, I'm creating
+    an original sci-fi Blender game focused on immersive environments and
+    interactive gameplay.
+  </div>
+</section>
+
+<section id="skills">
+  <div class="label">SKILLS</div>
+  <div class="title">Technologies I'm Learning</div>
+  <div class="subtitle">
+    Tools and technologies I've used throughout my engineering journey.
+  </div>
+
+  <div class="skills">
+    <div class="chip">C</div>
+    <div class="chip">C++</div>
+    <div class="chip">Python</div>
+    <div class="chip">SQL</div>
+    <div class="chip">HTML & CSS</div>
+    <div class="chip">Git & GitHub</div>
+    <div class="chip">Artificial Intelligence</div>
+    <div class="chip">Machine Learning</div>
+    <div class="chip">Backend Development</div>
+    <div class="chip">Network Security</div>
+    <div class="chip">Blender</div>
+    <div class="chip">Game Development</div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="label">PROJECTS</div>
+  <div class="title">Things I've Built</div>
+  <div class="subtitle">
+    Featured projects from coursework, hackathons, and personal development.
+  </div>
+
+  <div class="projects">
+
+    <div class="card">
+      <div class="tag">PROJECT 01</div>
+      <h3>Movie Recommendation System</h3>
+      <p>
+        AI-powered recommendation engine that suggests movies using similarity
+        algorithms and user preference analysis.
+      </p>
+      <a href="https://github.com/Mohith0621" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="card">
+      <div class="tag">PROJECT 02</div>
+      <h3>AI Network Security Compliance Auditor</h3>
+      <p>
+        Vendor-agnostic platform that analyzes router and firewall
+        configurations, detects risks, and provides AI-assisted remediation.
+      </p>
+      <a href="https://github.com/Mohith0621" target="_blank">View Repository →</a>
+    </div>
+
+    <div class="card">
+      <div class="tag">PROJECT 03 • ONGOING</div>
+      <h3>Project Aether</h3>
+      <p>
+        A sci-fi exploration game currently being developed in Blender,
+        featuring atmospheric corridor environments, cinematic lighting,
+        level design, and interactive gameplay mechanics.
+      </p>
+      <a href="#">Development in Progress →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="label">CONTACT</div>
+  <div class="title">Let's Connect</div>
+  <div class="subtitle">
+    Interested in collaborating or discussing AI, cybersecurity, or game development?
+  </div>
+
+  <div class="contact">
+
+    <div class="info">
+      <h4>Email</h4>
+      <a href="mailto:Mohith2106@gmail.com">Mohith2106@gmail.com</a>
+    </div>
+
+    <div class="info">
+      <h4>GitHub</h4>
+      <a href="https://github.com/Mohith0621" target="_blank">
+        github.com/Mohith0621
+      </a>
+    </div>
+
+    <div class="info">
+      <h4>LinkedIn</h4>
+      <a href="https://www.linkedin.com/in/mohith-gowda-v-s-ba0119431/" target="_blank">
+        Connect with me →
+      </a>
+    </div>
+
+    <div class="info">
+      <h4>Portfolio</h4>
+      <a href="#home">Back to Top ↑</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Mohith Gowda • Designed & Developed by Mohith
+</footer>
+
 </body>
 </html>
