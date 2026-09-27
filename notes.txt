@@ -2,3 +2,4 @@ GitHub Fundamentals Notes
 
 Learning about repositories and commits.
 Practiced creating and updating files in GitHub.
+Version control helps track changes efficiently.
